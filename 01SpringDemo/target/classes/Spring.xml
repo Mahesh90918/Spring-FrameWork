@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+    ">
+
+	<bean id="studentdemo" class="com.bean.Student">
+		<property name="sid" value="01"></property>
+		<property name="sname" value="mahesh"></property>
+		<property name="sfee" value="25000.00"></property>
+	</bean>
+	<bean id="employeedemo" class="com.bean.Employee">
+		<constructor-arg value="01"></constructor-arg>
+		<constructor-arg value="Siva"></constructor-arg>
+		<constructor-arg value="50000.00"></constructor-arg>
+	</bean>
+	<bean id="employee1demo" class="com.bean.Employee1">
+		<!-- default values -->
+	</bean>
+	<bean id="employee2demo" class="com.bean.Employee2">
+		<constructor-arg value="02"></constructor-arg>
+		<constructor-arg value="siva"></constructor-arg>
+
+	</bean>
+	<context:annotation-config />
+</beans>
