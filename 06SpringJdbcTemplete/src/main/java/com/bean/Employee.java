@@ -1,6 +1,7 @@
 package com.bean;
 
 public class Employee {
+	///normal msg
 	int id;
 	String name;
 	double salary;
