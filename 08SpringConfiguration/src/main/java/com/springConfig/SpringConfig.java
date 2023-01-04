@@ -15,12 +15,12 @@ import org.springframework.jdbc.core.JdbcTemplate;
 @ComponentScan(basePackages = "com")
 @PropertySource(value = {"classpath:db.properties"})
 public class SpringConfig {
-// property File reading  Environment
 	
 	{
 		System.out.println("SpringConfig Test");
 	}
 	
+// property File reading  Environment
 	@Autowired
 	Environment environment;
 	

@@ -1,0 +1,39 @@
+<configuration scan="true" info="true">
+	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
+		<!-- <file>myApp.log</file> -->
+		<file>${LOG_PATH}/logfile.log</file>
+		<append>false</append>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>%msg%n</pattern>
+		</layout>
+	</appender>
+	<appender name="RollingFile-Appender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_PATH}/rollingfile.log</file>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_ARCHIVE}/rollingfile.log%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<maxHistory>30</maxHistory>
+			<totalSizeCap>100kB</totalSizeCap>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%msg%n</pattern>
+		</encoder>
+	</appender>
+	<appender name="STDOUT"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder 
+			by default -->
+		<encoder>
+			<pattern>%msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="algorithms.MultiLabel.cg.master" level="OFF" />
+
+	<root level="debug"> <!-- levels: OFF, info, debug -->
+		<appender-ref ref="FILE" />
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>

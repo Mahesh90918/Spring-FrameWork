@@ -21,7 +21,7 @@ public abstract class EmployeeTest {
 //		Employee emp1 = new Employee(2, "sivaaa", 50000.00, "siva@siva12");
 //		ec.update(emp1);
 
-		// ec.findbyAll().forEach(System.out::println);
+		 ec.findbyAll().forEach(System.out::println);
 
 		// System.out.println(emp);
 

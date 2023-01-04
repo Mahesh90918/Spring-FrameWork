@@ -13,26 +13,15 @@
 	</appender>
 	<appender name="File-Appender"
 		class="ch.qos.logback.core.FileAppender">
-		<file>${LOG_PATH}/logfile-${timestamp-by-second}.log</file>
+<!-- 		<file>${LOG_PATH}/logfile-${timestamp-by-second}.log</file> -->
+			<fileNamePattern>${LOG_ARCHIVE}/rollingfile.log%d{yyyy-MM-dd}.log
+			</fileNamePattern>
 		<encoder>
 			<pattern>%msg%n</pattern>
 			<outputPatternAsHeader>true</outputPatternAsHeader>
 		</encoder>
 	</appender>
-	<appender name="RollingFile-Appender"
-		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${LOG_PATH}/rollingfile.log</file>
-		<rollingPolicy
-			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>${LOG_ARCHIVE}/rollingfile.log%d{yyyy-MM-dd}.log
-			</fileNamePattern>
-			<maxHistory>30</maxHistory>
-			<totalSizeCap>1kB</totalSizeCap>
-		</rollingPolicy>
-		<encoder>
-			<pattern>%msg%n</pattern>
-		</encoder>
-	</appender>
+	
 	<appender name="Async-Appender"
 		class="ch.qos.logback.classic.AsyncAppender">
 		<appender-ref ref="RollingFile-Appender" />
