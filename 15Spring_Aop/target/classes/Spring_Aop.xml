@@ -1,0 +1,30 @@
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+            "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+
+	<bean id="accountimpl" class="com.aop.demo.AccountImpl" />
+	<bean id="auth"
+		class="com.aop.cross_cutting_functionalities.AuthService" />
+	<bean id="tran"
+		class="com.aop.cross_cutting_functionalities.TransactionService" />
+	<bean id="logging"
+		class="com.aop.cross_cutting_functionalities.LoggingService" />
+	<bean id="id4"
+		class="org.springframework.aop.framework.ProxyFactoryBean">
+
+		<property name="proxyInterfaces" value="com.aop.demo.Account" />
+		<property name="interceptorNames">
+			<list>
+				<value>auth</value>
+				<value>tran</value>
+				<value>logging</value>
+			</list>
+		</property>
+		<property name="target">
+			<ref bean="accountimpl" />
+		</property>
+
+	</bean>
+
+</beans>
