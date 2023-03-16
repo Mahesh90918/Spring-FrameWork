@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="insertvalue" method="post">
+	<form action="./savemethod" method="post">
 		<table align="center">
 			<tr>
 				<td>Eid:</td>
